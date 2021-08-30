@@ -345,3 +345,61 @@ WHERE ViewCount > 0
   AND CommentCount > 0
   AND CreationDate BETWEEN '2019-12-01' AND '2019-12-06'
   ORDER BY CreationDate DESC;
+
+
+-- November 2019
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-11-01' AND '2019-12-01'
+  ORDER BY CreationDate DESC;
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-11-01' AND '2019-12-01'
+  ORDER BY CreationDate DESC;
+
+-- October 2019
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-10-01' AND '2019-11-01'
+  ORDER BY CreationDate DESC;
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-10-01' AND '2019-10-10'
+  ORDER BY CreationDate DESC;
+
+-- september 2019
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-09-01' AND '2019-10-01'
+  ORDER BY CreationDate DESC;
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-09-01' AND '2019-09-11'
+  ORDER BY CreationDate DESC;
