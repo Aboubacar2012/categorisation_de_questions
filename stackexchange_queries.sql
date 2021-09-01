@@ -403,3 +403,191 @@ WHERE ViewCount > 0
   AND CommentCount > 0
   AND CreationDate BETWEEN '2019-09-01' AND '2019-09-11'
   ORDER BY CreationDate DESC;
+
+-- 1st part 2019
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2019-01-01' AND '2019-06-30';
+
+-- 2018
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2018-01-01' AND '2018-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2018-07-01' AND '2018-12-31';
+
+-- 2017
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2017-01-01' AND '2017-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2017-07-01' AND '2017-12-31';
+
+-- 2016
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2016-01-01' AND '2016-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2016-07-01' AND '2016-12-31';
+
+-- 2015
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2015-01-01' AND '2015-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2015-07-01' AND '2015-12-31';
+
+-- 2014
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2014-01-01' AND '2014-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2014-07-01' AND '2014-12-31';
+
+-- 2013
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2013-01-01' AND '2013-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2013-07-01' AND '2013-12-31';
+
+-- 2012
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2012-01-01' AND '2012-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2012-07-01' AND '2012-12-31';
+
+-- 2011
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2011-01-01' AND '2011-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2011-07-01' AND '2011-12-31';
+
+-- 2010
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2010-01-01' AND '2010-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2010-07-01' AND '2010-12-31';
+
+-- 2009
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2009-01-01' AND '2009-06-30';
+
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND CreationDate BETWEEN '2009-07-01' AND '2009-12-31';
+
+-- 2008
+SELECT Id, AcceptedAnswerId, CreationDate, Score,
+       ViewCount, Body, OwnerUserId, Title, Tags, AnswerCount, CommentCount
+FROM Posts
+WHERE ViewCount > 0 
+  AND AnswerCount > 0 
+  AND CommentCount > 0
+  AND Id < 50000;
