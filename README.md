@@ -12,4 +12,4 @@ After selecting posts, textual data will be cleaning. This stage is composed by 
 - lemmatizing text
 - removing stopwords
 In order to accelerate preprocessing, a nlp module was created with many reusable functions. This module was found in the website Towards Data Science (link in the script "nlp_module.py"). Once this cleaning realized, the next stage is to visualize and describe our text data. Here an example of a wordcloud for the tags. 
-![wordcloud](illustrations\wordcloud_tags.png)
+![wordcloud_tags](https://user-images.githubusercontent.com/64648386/132103532-337eea6c-89c9-409e-89d0-921e47b83f20.png)
