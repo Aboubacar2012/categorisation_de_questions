@@ -18,6 +18,7 @@ In order to accelerate preprocessing, a nlp module was created with many reusabl
 The third stage is modelling. A preprocessing was required before using unsupervised techniques. Two models of topic modelling were selected : NMF & LDA. For each model, hyperparameters were fine-tune. 
 - For Non Negative Matrix Factorization, number of topics was tuning. The best number of topics for this techniques is 8.
 - Concerning Latent Dirichlet Allocation, number of topics, alpha and eta parameters were tuning. The best parameters are : 9 topics, alpha = ... & beta = ...
+
 The evaluation of each methods was performed by coherence score. This score was better for LDA. Results of LDA was presented in a visualisation realised with pyLDAvis.
 
 
