@@ -15,3 +15,8 @@ In order to accelerate preprocessing, a nlp module was created with many reusabl
 
 ![wordcloud_tags](https://user-images.githubusercontent.com/64648386/132108829-fe9856ac-d1a9-4562-b8a1-dcac83776231.png)
 
+The third stage is modelling. A preprocessing was required before using unsupervised techniques. Two models of topic modelling were selected : NMF & LDA. For each model, hyperparameters were fine-tune. 
+- For Non Negative Matrix Factorization, number of topics was tuning. The best number of topics for this techniques is 8.
+- Concerning Latent Dirichlet Allocation, number of topics, alpha and eta parameters were tuning. The best parameters are : 9 topics, alpha = ... & beta = ...
+The evaluation of each methods was performed by coherence score. This score was better for LDA. Results of LDA was presented in a visualisation realised with pyLDAvis.
+The second part of modelling used supervised learning methods. Two algorithms of Machine Learning were chosen, SVM & Naive Bayes Classifier, and two algorithms of Deep Learning were selected : Recurrent Neural Network (RNN) & Long-Short Term Memory (LSTM). 
