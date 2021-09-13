@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
 <html>
-    <title>Keywords recommandation</title>
+    <title>Keywords Recommandation</title>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <h1>Keywords System of recommandation for StackOverFlow Q&A</h1>
+        <h1>Keywords Recommandation - StackOverFlow Q&A</h1>
     </head>
     <body>
-        <p>This website is here to help you to select the best keyword for your questions on StackOverflow Website. You just need to 
-            write the title and the body of your question in the differents box. After that, hit the button "Submit" and you're going to obtain
-            the best keywords recommandations.
+        <p>This website is here to help you to select the best keywords associated to your question on StackOverflow website.<br>
+            You just need to write the title and the body of your question in the differents boxes. <br>
+            After that, just hit the button "Submit" and you obtain the best keywords related to your question.
         </p>
         <form action="http://localhost:5000/predict", method="POST"
         enctype="multipart/form-data">
@@ -17,7 +17,7 @@
          <label for="title"><span>Title</span></label>
          <textarea name="body" rows="2" class="question" id="body" required autocomplete="off"></textarea>
          <label for="msg"><span>Type your question here...</span></label>
-         <input type="submit" value="Submit!" />
+         <input type="submit" value="Submit" />
     </form>
     </br>
     </br>
