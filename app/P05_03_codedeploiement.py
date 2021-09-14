@@ -29,7 +29,7 @@ def predict():
     df = pd.DataFrame([d.values()], columns=d.keys())
     print(df)
     keyword = model_keyword.predict(df)
-    return render_template('index.html', prediction_text="Keywords suggested".format(keyword))
+    return render_template('index.html', prediction_text="Keywords suggested{}".format(keyword))
 
 if __name__ == "__main__":
     #keyword_model = joblib.load("models/keyword_model.pkl")
