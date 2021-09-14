@@ -3,7 +3,7 @@
 <html>
     <title>Keywords Recommandation</title>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
         <h1>Keywords Recommandation - StackOverFlow Q&A</h1>
     </head>
     <body>
@@ -16,7 +16,7 @@
          <input type="text" name="title" class="question" id="nme" required autocomplete="off" />
          <label for="title"><span>Title</span></label>
          <textarea name="body" rows="2" class="question" id="body" required autocomplete="off"></textarea>
-         <label for="msg"><span>Type your question here...</span></label>
+         <label for="body"><span>Type your question here...</span></label>
          <input type="submit" value="Submit" />
     </form>
     </br>
