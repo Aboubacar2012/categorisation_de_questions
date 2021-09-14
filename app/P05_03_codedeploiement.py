@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 
-app = Flask(__name__, template_folder='templates', static_folder='templates\static')
+app = Flask(__name__, template_folder='templates', static_folder='templates/static')
 
 @app.route('/')
 def index():
