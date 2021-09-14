@@ -6,6 +6,7 @@ from nltk.tokenize.toktok import ToktokTokenizer
 import re
 from bs4 import BeautifulSoup
 from contractions import CONTRACTION_MAP
+import unicodedata
 
 """Functions are found in this article 
 https://towardsdatascience.com/a-practitioners-guide-to-natural-language-processing-part-i-processing-understanding-text-9f4abfd13e72"""
