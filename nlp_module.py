@@ -8,11 +8,12 @@ from bs4 import BeautifulSoup
 from contractions import CONTRACTION_MAP
 import unicodedata
 import matplotlib.pyplot as plt
+from sklearn.metrics import accuracy_score, f1_score, average_precision_score, recall_score
 
 """Functions are found in this article 
 https://towardsdatascience.com/a-practitioners-guide-to-natural-language-processing-part-i-processing-understanding-text-9f4abfd13e72"""
 
-nlp = spacy.load('en_core_web_sm')
+#nlp = spacy.load('en_core_web_sm')
 #nlp_vec = spacy.load('en_vecs', parse = True, tag=True, #entity=True)
 tokenizer = ToktokTokenizer()
 stopword_list = nltk.corpus.stopwords.words('english')
@@ -73,6 +74,9 @@ def remove_stopwords(text, is_lower_case=False):
     filtered_text = ' '.join(filtered_tokens)    
     return filtered_text
 
+def tok(text):
+    tokenizer = ToktokTokenizer()
+    return tokenizer.tokenize(text)
 
 def normalize_corpus(corpus, html_stripping=True, contraction_expansion=True,
                      accented_char_removal=True, text_lower_case=True, 
@@ -139,3 +143,19 @@ def plot_top_words(model, feature_names, n_top_words, title):
 
     plt.subplots_adjust(top=0.90, bottom=0.05, wspace=0.90, hspace=0.3)
     plt.show()
+
+#########################################
+###############METRICS###################
+#########################################
+
+def print_evaluation_scores(y_test, predicted):
+    print('Accuracy: ', accuracy_score(y_test, predicted, normalize=False))
+    print('F1-score macro: ', f1_score(y_test, predicted, average='macro'))
+    print('F1-score micro: ', f1_score(y_test, predicted, average='micro'))
+    print('F1-score weighted: ', f1_score(y_test, predicted, average='weighted'))
+    print('Precision macro: ', average_precision_score(y_test, predicted, average='macro'))
+    print('Precision micro: ', average_precision_score(y_test, predicted, average='micro'))
+    print('Precision weighted: ', average_precision_score(y_test, predicted, average='weighted'))
+    print("Recall macro: ", recall_score(y_test, predicted, average="macro"))
+    print("Recall micro: ", recall_score(y_test, predicted, average="micro"))
+    print("Recall weighted: ", recall_score(y_test, predicted, average="weighted"))
