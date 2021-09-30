@@ -150,6 +150,7 @@ def plot_top_words(model, feature_names, n_top_words, title):
 
 def print_evaluation_scores(y_test, predicted):
     print('Accuracy: ', accuracy_score(y_test, predicted, normalize=False))
+    print('Accuracy (normalized):', accuracy_score(y_test, predicted, normalize=True))
     print('F1-score macro: ', f1_score(y_test, predicted, average='macro'))
     print('F1-score micro: ', f1_score(y_test, predicted, average='micro'))
     print('F1-score weighted: ', f1_score(y_test, predicted, average='weighted'))
