@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from contractions import CONTRACTION_MAP
 import unicodedata
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, f1_score, average_precision_score, recall_score
+from sklearn.metrics import accuracy_score, f1_score, hamming_loss
 
 """Functions are found in this article 
 https://towardsdatascience.com/a-practitioners-guide-to-natural-language-processing-part-i-processing-understanding-text-9f4abfd13e72"""
@@ -149,14 +149,11 @@ def plot_top_words(model, feature_names, n_top_words, title):
 #########################################
 
 def print_evaluation_scores(y_test, predicted):
-    print('Accuracy: ', accuracy_score(y_test, predicted, normalize=False))
-    print('Accuracy (normalized):', accuracy_score(y_test, predicted, normalize=True))
-    print('F1-score macro: ', f1_score(y_test, predicted, average='macro'))
-    print('F1-score micro: ', f1_score(y_test, predicted, average='micro'))
+    print('Subset Accuracy: ', accuracy_score(y_test, predicted, normalize=True, sample_weight=None))
+    print('Hamming Loss (Misclassification Ratio): ', hamming_loss(y_test, predicted))
     print('F1-score weighted: ', f1_score(y_test, predicted, average='weighted'))
-    print('Precision macro: ', average_precision_score(y_test, predicted, average='macro'))
-    print('Precision micro: ', average_precision_score(y_test, predicted, average='micro'))
-    print('Precision weighted: ', average_precision_score(y_test, predicted, average='weighted'))
-    print("Recall macro: ", recall_score(y_test, predicted, average="macro"))
-    print("Recall micro: ", recall_score(y_test, predicted, average="micro"))
-    print("Recall weighted: ", recall_score(y_test, predicted, average="weighted"))
+
+def hamming_score(y_true, y_pred):
+    return (
+        (y_true & y_pred).sum(axis=1) / (y_true | y_pred).sum(axis=1)
+    ).mean()
