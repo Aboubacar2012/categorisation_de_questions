@@ -23,27 +23,20 @@ print(data.head(3))
 data.dropna(inplace=True)
 
 data["Tags"] = data["Tags"].replace({"<" : " "},
-                                    regex=True)
-data["Tags"] = data["Tags"].replace({">" : " "},
-                                    regex=True)
+                                     regex=True)
+data["Tags"] = data["Tags"].replace({">" : ","},
+                                     regex=True)
+data["Tags"] = data["Tags"].str.rstrip(',')
 
 docs = data["Title"].values \
         + " " \
         + data["Body"].values
 
-tags = data[["Id", "Tags"]]
-tags = tags["Tags"].str.split(expand=True)
-tags['Id'] = data["Id"]
-tags.columns = ["1st", "2nd", "3rd", "4th", "5th", "Id"]
-tags = tags[["Id", "1st", "2nd", "3rd", "4th", "5th"]]
-print(tags.head(3))
+tags = data[["Tags"]].values
 
-tags.fillna("",inplace=True)
 
 mlb = MultiLabelBinarizer()
-new_tags=pd.DataFrame(mlb.fit_transform(tags[["1st", "2nd", "3rd", "4th", "5th"]].values),
-                      columns=mlb.classes_,
-                      index=tags["Id"])
+tags_mlb = mlb.fit_transform(tags)
 
 
 ########################################
@@ -65,7 +58,7 @@ vectorizer_tfidf = TfidfVectorizer(encoding="utf-8",
 ########################################
 
 X = docs.copy()
-y = new_tags.copy()
+y = tags_mlb.copy()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, 
                                                     test_size=.25)
@@ -89,5 +82,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 final_pipeline = Pipeline([
     "vectorizer", vectorizer_tfidf,
-    "model", MLkNN_clf
+    "model",
 ])
+
+######################################
+############MODEL SAVING##############
+######################################
+
