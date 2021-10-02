@@ -161,7 +161,7 @@ def hamming_score(y_test, y_pred, normalize=True, sample_weight=None):
         set_pred = set( np.where(y_pred[i])[0] )
         tmp_a = None
         if len(set_true) == 0 and len(set_pred) == 0:
-        tmp_a = 1
+            tmp_a = 1
         else:
             tmp_a = len(set_true.intersection(set_pred))/float(len(set_true.union(set_pred)))
         acc_list.append(tmp_a)
@@ -169,7 +169,7 @@ def hamming_score(y_test, y_pred, normalize=True, sample_weight=None):
 
 def print_score(y_test, y_pred):
     print("Hamming loss (Misclassification Ratio): {}".format(hamming_loss(y_test, y_pred)))
-    print("Hamming score: {}".format(hamming_score(y_test, y_pred)))
-    print('Subset Accuracy: ', accuracy_score(y_test, predicted, normalize=True, sample_weight=None))
-    print('F1-score Micro: ', f1_score(y_test, predicted, average='micro'))
-    print("F1-Score Macro: ", f1_score(y_test, predicted, average="macro"))
+    print("Label-Based Accuracy: {}".format(hamming_score(y_test, y_pred)))
+    print('Subset Accuracy: ', accuracy_score(y_test, y_pred, normalize=True, sample_weight=None))
+    print('F1-score Micro: ', f1_score(y_test, y_pred, average='micro'))
+    print("F1-Score Macro: ", f1_score(y_test, y_pred, average="macro"))
