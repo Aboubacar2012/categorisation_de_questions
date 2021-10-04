@@ -77,7 +77,7 @@ X_train = vectorizer_tfidf.fit_transform(X_train)
 X_test = vectorizer_tfidf.transform(X_test)
 
 print("Vectorization ended!")
-print("done in %0.3fs." % (time() - t0)
+print("done in %0.3fs." % (time() - t0))
 print("-----------------------------")
 
 #######################################
@@ -105,7 +105,7 @@ print("-----------------------------")
 print("Evaluation of the model:\n ")
 t0 = time()
 print_score(y_pred, y_test)
-print("done in %0.3fs." % (time() - t0)
+print("done in %0.3fs." % (time() - t0))
 print("-----------------------------")
 
 ######################################
@@ -127,7 +127,7 @@ final_pipeline = Pipeline([
 joblib.dump(final_pipeline,
             "app/model/model_pipeline.pkl")
 print("Model saved!")
-print("done in %0.3fs." % (time() - t0)
+print("done in %0.3fs." % (time() - t0))
 print("-----------------------------")
 
 ######################################
