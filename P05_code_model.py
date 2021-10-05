@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from skmultilearn.adapt import MLkNN
-from nlp_module import tok, print_score
+from nlp_module import normalize_corpus, tok, print_score
 from sklearn.preprocessing import MultiLabelBinarizer
 from time import time
 
@@ -20,7 +20,7 @@ print("Loading dataset")
 t0 = time()
 path = "datasets/posts_clean.csv"
 data = pd.read_csv(path, encoding="utf-8")
-data = data.sample(frac=0.5,
+data = data.sample(frac=0.75,
                      random_state=42)
 print(data.head(3))
 print("Dataset Loaded")
@@ -67,16 +67,17 @@ print("-----------------------------")
 print('Training...')
 t0 = time()
 
-final_pipeline = Pipeline([
-    "vectorizer", vectorizer_tfidf,TfidfVectorizer(encoding="utf-8",
+final_pipeline = Pipeline(
+    steps=[
+    ("vectorizer", TfidfVectorizer(encoding="utf-8",
                              max_features=12000,
                              lowercase=True,
                              strip_accents="unicode",
                              analyzer="word",
                              stop_words = "english",
                              token_pattern=r'[^a-zA-z0-9\s]',
-                             tokenizer=tok),
-    "model", MLkNN(k=10, s=0.7)
+                             tokenizer=tok)),
+    ("model", MLkNN(k=10, s=0.7))
 ])
 final_pipeline.fit(X_train, y_train)
 print("Training finished!")
@@ -150,6 +151,7 @@ posts = my_title + " " + my_body
 
 print("My post: ", posts)
 
+posts = normalize_corpus(posts)
 my_prediction = final_pipeline.predict(posts)
 my_prediction = my_prediction.tocsc()
 my_prediction = mlb.inverse_transform(my_prediction)
