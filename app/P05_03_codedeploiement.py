@@ -29,9 +29,11 @@ def predict():
     df = pd.DataFrame([d.values()], columns=d.keys())
     print(df)
     keyword = model_keyword.predict(df)
+    keyword = keyword.tocsc()
+    keyword = mlb.inverse_transform(keyword)
     return render_template('index.html', prediction_text="Keywords suggested{}".format(keyword))
 
 if __name__ == "__main__":
     #keyword_model = joblib.load("models/keyword_model.pkl")
-    print("Models loaded")
+    print("Model loaded")
     app.run(host="localhost", port=5000, debug=True)
