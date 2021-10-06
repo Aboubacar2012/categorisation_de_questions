@@ -1,0 +1,11 @@
+gunicorn==20.1.0
+pandas==1.2.4
+module_nlp
+Flask
+joblib
+pickle
+scikit-learn
+scikit-multilearn
+spacy
+
+
