@@ -33,4 +33,4 @@ if __name__ == "__main__":
     keyword_model = joblib.load("app\model\model_pipeline.pkl")
     transformer = joblib.load("app\model\mlb_transformer.pkl")
     print("Models loaded")
-    app.run(host="localhost", port=5000, debug=True)
+    app.run(debug=True)
