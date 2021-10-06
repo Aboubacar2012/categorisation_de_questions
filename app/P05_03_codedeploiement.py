@@ -19,7 +19,7 @@ def predict():
     body = request.form.get('body')
     print(body)
 
-    print("Dataframe format required for Machine Learning prediction")
+    print("String format required for Machine Learning prediction")
     post = title + " " + body
     post = [post]
     keyword = keyword_model.predict(post)
