@@ -14,26 +14,23 @@ def index():
 
 @app.route("/predict", methods= ['POST'])
 def predict():
-    d = None
-    if request.method == 'POST':
-        print('POST received')
-        d = request.form.to_dict()
-    else:
-        print('GET received')
-        d = request.args.to_dict()
-    print(d)
-    print(d.keys())
-    print(d.values())
+    title = request.form.get('title')
+    print(title)
+    body = request.form.get('body')
+    print(body)
 
     print("Dataframe format required for Machine Learning prediction")
-    df = pd.DataFrame([d.values()], columns=d.keys())
-    print(df)
-    keyword = model_keyword.predict(df)
+    post = title + " " + body
+    post = [post]
+    keyword = keyword_model.predict(post)
     keyword = keyword.tocsc()
-    keyword = mlb.inverse_transform(keyword)
+    keyword = transformer.inverse_transform(keyword)
+    keyword = [x for x in keyword if x != ()]
+    keyword = list(set(keyword))
     return render_template('index.html', prediction_text="Keywords suggested{}".format(keyword))
 
 if __name__ == "__main__":
-    #keyword_model = joblib.load("models/keyword_model.pkl")
-    print("Model loaded")
+    keyword_model = joblib.load("app\model\model_pipeline.pkl")
+    transformer = joblib.load("app\model\mlb_transformer.pkl")
+    print("Models loaded")
     app.run(host="localhost", port=5000, debug=True)
