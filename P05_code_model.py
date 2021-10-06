@@ -3,12 +3,14 @@ warnings.filterwarnings("ignore")
 import pandas as pd
 
 from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from skmultilearn.adapt import MLkNN
 from nlp_module import normalize_corpus, tok, print_score
 from sklearn.preprocessing import MultiLabelBinarizer
 from time import time
+from pickle import dump
 
 import joblib
 
@@ -20,7 +22,7 @@ print("Loading dataset")
 t0 = time()
 path = "datasets/posts_clean.csv"
 data = pd.read_csv(path, encoding="utf-8")
-data = data.sample(frac=0.75,
+data = data.sample(frac=0.05,
                      random_state=42)
 print(data.head(3))
 print("Dataset Loaded")
@@ -44,7 +46,10 @@ docs = data["Title"].values \
         + data["Body"].values
 
 mlb = MultiLabelBinarizer()
-tags_mlb = mlb.fit_transform(tags)
+mlb.fit(tags)
+tags_mlb = mlb.transform(tags)
+
+dump(mlb, open('app/model/mlb_transformer.pkl', 'wb'))
 
 ########################################
 ############SPLITTING DATA##############
@@ -120,6 +125,13 @@ print("-----------------------------")
 ###########MODEL TRIAL################
 ######################################
 
+print("Model loading...")
+
+final_pipeline = joblib.load("app/model/model_pipeline.pkl")
+transformer = joblib.load("app/model/mlb_transformer.pkl")
+
+print("Model loaded!")
+
 print("Prediction on a new post")
 
 my_title = "What is wrong with this js code, Returning variable from function"
@@ -147,14 +159,19 @@ $(".fa-thumbs-up").click(function(){
         alert("You must log in before you can rate this video!");
     }
 });"""
+
 posts = my_title + " " + my_body
 
 print("My post: ", posts)
+
+t0 = time()
 
 posts = normalize_corpus(posts)
 my_prediction = final_pipeline.predict(posts)
 my_prediction = my_prediction.tocsc()
 my_prediction = mlb.inverse_transform(my_prediction)
 
-print("My tags:", my_prediction)
+print("done in %0.3fs." % (time() - t0))
 
+my_prediction = [x for x in my_prediction if x != ()]
+print("My tags", list(set(my_prediction)))
