@@ -28,7 +28,7 @@ def predict():
     return render_template('predict.html',
                             title = title,
                             body = body,
-                            prediction_text="Tags suggested: {}".format(keyword))
+                            prediction_text="Suggested Tags: {}".format(keyword))
 
 if __name__ == '__main__':
     app.run(debug=True)
