@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
-import pickle
+import joblib
 
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
 
-keyword_model = pickle.load(open("model_pipeline.pkl", 'rb'))
-transformer = pickle.load(open("mlb_transformer.pkl", 'rb'))
+keyword_model = joblib.load("model_pipeline.pkl")
+transformer = joblib.load("mlb_transformer.pkl")
 
 @app.route('/')
 def index():
