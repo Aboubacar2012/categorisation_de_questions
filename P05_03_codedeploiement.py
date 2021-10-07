@@ -1,18 +1,17 @@
-from flask import Flask, render_template, request, jsonify
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request
 import joblib
-import traceback
-import numpy as np
-import pandas as pd
 
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
+
+keyword_model = joblib.load("model_pipeline.pkl")
+transformer = joblib.load("mlb_transformer.pkl")
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-@app.route("/predict", methods= ['POST'])
+@app.route("/submit", methods= ['GET','POST'])
 def predict():
     title = request.form.get('title')
     print(title)
@@ -26,20 +25,12 @@ def predict():
     keyword = transformer.inverse_transform(keyword)
     keyword = [x for x in keyword if x != ()]
     keyword = list(set(keyword))
-    return render_template('index.html',
-                            prediction_text="Keywords suggested: {}".format(keyword))
+    return render_template('predict.html',
+                            title = title,
+                            body = body,
+                            prediction_text="Tags suggested: {}".format(keyword))
 
-@app.route('/results',methods=['POST'])
-def results():
-    post = request.get_json(force=True)
-    prediction = keyword_model.predict(post)
-
-    output = [x for x in prediction if x !=()]
-    output = list(set(output))
-    return jsonify(output)
-
-if __name__ == "__main__":
-    keyword_model = joblib.load("app\model\model_pipeline.pkl")
-    transformer = joblib.load("app\model\mlb_transformer.pkl")
-    print("Models loaded")
+if __name__ == '__main__':
+    #keyword_model = joblib.load("app/model/model_pipeline.pkl")
+    #transformer = joblib.load("app/model/mlb_transformer.pkl")
     app.run(debug=True)
