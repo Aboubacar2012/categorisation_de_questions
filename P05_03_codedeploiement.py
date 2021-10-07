@@ -1,17 +1,17 @@
 from flask import Flask, render_template, request
-import joblib
+import pickle
 
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
 
-keyword_model = joblib.load("model_pipeline.pkl")
-transformer = joblib.load("mlb_transformer.pkl")
+keyword_model = pickle.load(open("model_pipeline.pkl", 'rb'))
+transformer = pickle.load(open("mlb_transformer.pkl", 'rb'))
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-@app.route("/predict", methods= ['GET','POST'])
+@app.route("/submit", methods= ['GET','POST'])
 def predict():
     title = request.form.get('title')
     print(title)
