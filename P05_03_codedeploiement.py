@@ -18,7 +18,6 @@ def predict():
     print(title)
     body = request.form.get('body')
     print(body)
-
     print("String format required for Machine Learning prediction")
     post = title + " " + body
     post = [post]
@@ -27,11 +26,10 @@ def predict():
     keyword = transformer.inverse_transform(keyword)
     keyword = [x for x in keyword if x != ()]
     keyword = list(set(keyword))
-    return render_template('index.html', prediction_text="Keywords suggested{}".format(keyword))
+    return render_template('index.html', prediction_text="Keywords suggested: {}".format(keyword))
 
 if __name__ == "__main__":
     keyword_model = joblib.load("app\model\model_pipeline.pkl")
     transformer = joblib.load("app\model\mlb_transformer.pkl")
     print("Models loaded")
-    app.debug = True
-    app.run()
+    app.run(debug=True)
