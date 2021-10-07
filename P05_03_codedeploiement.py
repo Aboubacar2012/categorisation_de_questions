@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder='templates', static_folder='templates/stat
 def index():
     return render_template("index.html")
 
-@app.route("/predict", methods= ['GET','POST'])
+@app.route("/", methods= ['GET','POST'])
 def predict():
     title = request.form.get('title')
     print(title)
