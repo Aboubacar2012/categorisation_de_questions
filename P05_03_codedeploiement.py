@@ -8,6 +8,9 @@ import pandas as pd
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
 
+keyword_model = joblib.load("app\model\model_pipeline.pkl")
+transformer = joblib.load("app\model\mlb_transformer.pkl")
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -29,8 +32,5 @@ def predict():
     return render_template('predict.html',
                             prediction_text="Keywords suggested: {}".format(keyword))
 
-if __name__ == "__main__":
-    keyword_model = joblib.load("app\model\model_pipeline.pkl")
-    transformer = joblib.load("app\model\mlb_transformer.pkl")
-    print("Models loaded")
+if __name__ == '__main__':
     app.run(debug=True)
