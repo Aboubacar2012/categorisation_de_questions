@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini P05_03_codedeploiement.py:app
+web: gunicorn P05_03_codedeploiement.py:app
