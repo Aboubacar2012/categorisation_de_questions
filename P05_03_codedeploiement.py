@@ -25,8 +25,10 @@ def predict():
     keyword = transformer.inverse_transform(keyword)
     keyword = [x for x in keyword if x != ()]
     keyword = list(set(keyword))
-    return render_template('index.html',
-                            prediction_text="Keywords suggested: {}".format(keyword))
+    return render_template('predict.html',
+                            title = title,
+                            body = body,
+                            prediction_text="Tags suggested: {}".format(keyword))
 
 if __name__ == '__main__':
     app.run(debug=True)
