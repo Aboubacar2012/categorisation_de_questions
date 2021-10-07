@@ -1,4 +1,4 @@
-﻿bs4
+bs4
 docutils
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.1.0/en_core_web_sm-3.1.0-py3-none-any.whl
 entrypoints==0.3
@@ -15,7 +15,7 @@ keras-nightly==2.7.0.dev2021093007
 Keras-Preprocessing==1.1.2
 keras-tuner==1.0.4
 matplotlib
-nltk_packages
+nltk
 numpy==1.19.5
 numpydoc
 pandas
