@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import joblib
 import traceback
@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder='templates', static_folder='templates/stat
 def index():
     return render_template("index.html")
 
-@app.route("/predict", methods= ['POST'])
+@app.route("/predict", methods= ['GET','POST'])
 def predict():
     title = request.form.get('title')
     print(title)
@@ -28,15 +28,6 @@ def predict():
     keyword = list(set(keyword))
     return render_template('index.html',
                             prediction_text="Keywords suggested: {}".format(keyword))
-
-@app.route('/results',methods=['POST'])
-def results():
-    post = request.get_json(force=True)
-    prediction = keyword_model.predict(post)
-
-    output = [x for x in prediction if x !=()]
-    output = list(set(output))
-    return jsonify(output)
 
 if __name__ == "__main__":
     keyword_model = joblib.load("app\model\model_pipeline.pkl")
