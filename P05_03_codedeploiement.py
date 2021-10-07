@@ -1,16 +1,12 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import joblib
-import sys
-import logging
 import traceback
 import numpy as np
 import pandas as pd
 
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def index():
