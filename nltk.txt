@@ -1,2 +1,2 @@
-stopwords
-toktok
+corpus
+tokenize
