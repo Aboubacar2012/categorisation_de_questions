@@ -17,25 +17,12 @@
                 <p>Write the title and body to obtain the best keywords to add at your StackoverFlow posts.</p>
             </div>
             <div class='input-fields'>
-            <form action="{{ url_for('predict')}}", method="POST" enctype="multipart/form-data">
+            <form action="/predict", method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" class="input-line full-width" id="title" required placeholder="Title" />
                 <textarea name="body" rows="6" class="input-line full-width" id="body" required placeholder="Your question"></textarea>
                 <div><button class='ghost-round full-width'>Submit</button></div>
             </form>
         </div>
-        </br>
-    </br>
-    <div class="result">
-        {{ prediction_text }}
-    </div>
     </body>
-        </div>
     </div>
 </div>
-
-
-
-    <footer>
-        <em>Developped by Cécile Guillot, Machine Learning Engineer</em>
-    </footer>
-</html>    
