@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import joblib
+import sys
+import logging
 import traceback
 import numpy as np
 import pandas as pd
 
 
 app = Flask(__name__, template_folder='templates', static_folder='templates/static')
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def index():
@@ -33,4 +37,5 @@ if __name__ == "__main__":
     keyword_model = joblib.load("app\model\model_pipeline.pkl")
     transformer = joblib.load("app\model\mlb_transformer.pkl")
     print("Models loaded")
-    app.run(debug=True)
+    app.debug = True
+    app.run()
