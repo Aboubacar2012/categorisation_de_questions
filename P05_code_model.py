@@ -22,7 +22,7 @@ print("Loading dataset")
 t0 = time()
 path = "datasets/posts_clean.csv"
 data = pd.read_csv(path, encoding="utf-8")
-data = data.sample(frac=0.75,
+data = data.sample(frac=0.5,
                      random_state=42)
 print(data.head(3))
 print("Dataset Loaded")
@@ -48,6 +48,8 @@ docs = data["Title"].values \
 mlb = MultiLabelBinarizer()
 mlb.fit(tags)
 tags_mlb = mlb.transform(tags)
+
+print("Number of Tags:", len(mlb.classes_))
 
 dump(mlb, open('app/model/mlb_transformer.pkl', 'wb'))
 
