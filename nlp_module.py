@@ -172,4 +172,3 @@ def print_score(y_test, y_pred):
     print("Label-Based Accuracy: {}".format(hamming_score(y_test, y_pred)))
     print('Subset Accuracy: ', accuracy_score(y_test, y_pred, normalize=True, sample_weight=None))
     print('F1-score Micro: ', f1_score(y_test, y_pred, average='micro'))
-    print("F1-Score Macro: ", f1_score(y_test, y_pred, average="macro"))
