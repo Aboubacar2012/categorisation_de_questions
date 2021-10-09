@@ -84,7 +84,7 @@ final_pipeline = Pipeline(
                              stop_words = "english",
                              token_pattern=r'[^a-zA-z0-9\s]',
                              tokenizer=tok)),
-    ("model", MLkNN(k=10, s=0.7))
+    ("model", MLkNN(k=7, s=0.7))
 ])
 final_pipeline.fit(X_train, y_train)
 print("Training finished!")
