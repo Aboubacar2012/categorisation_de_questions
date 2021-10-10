@@ -22,7 +22,7 @@ print("Loading dataset")
 t0 = time()
 path = "datasets/posts_clean.csv"
 data = pd.read_csv(path, encoding="utf-8")
-data = data.sample(frac=0.5,
+data = data.sample(frac=0.25,
                      random_state=42)
 print(data.head(3))
 print("Dataset Loaded")
