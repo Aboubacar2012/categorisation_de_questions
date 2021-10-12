@@ -20,7 +20,7 @@ import joblib
 
 print("Loading dataset")
 t0 = time()
-path = "datasets/posts_clean.csv"
+path = "datasets/posts_with_tags_more_frequent.csv"
 data = pd.read_csv(path, encoding="utf-8")
 data = data.sample(frac=0.10,
                      random_state=42)
