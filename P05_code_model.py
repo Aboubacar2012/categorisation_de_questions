@@ -11,7 +11,6 @@ from nlp_module import normalize_corpus, tok, print_score
 from sklearn.preprocessing import MultiLabelBinarizer
 from time import time
 from pickle import dump
-
 import joblib
 
 ######################################
