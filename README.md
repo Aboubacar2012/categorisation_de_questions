@@ -23,7 +23,7 @@ The evaluation of each methods was performed by coherence score.
 
 ----------------
 
-In an another part of the project, supervised learning was used to realize multilabeling classification. 
+In another part of the project, supervised learning was used to realize multilabeling classification. 
 
 
-This project was presented and validated on 20th october 2021.
+**This project was presented and validated on 20th october 2021.**
